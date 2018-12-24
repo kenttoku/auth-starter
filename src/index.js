@@ -1,17 +1,9 @@
 const { GraphQLServer } = require('graphql-yoga');
 const mongoose = require('mongoose');
-
-const Query = require('./resolvers/query');
-const Mutation = require('./resolvers/mutation');
-
 const { DATABASE_URL } = require('./config');
+const resolvers = require('./resolvers');
 
 const typeDefs = './src/schema.graphql';
-const resolvers = {
-  Query,
-  Mutation,
-};
-
 
 const server = new GraphQLServer({
   typeDefs,
